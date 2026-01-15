@@ -119,3 +119,20 @@ tbody tr {
 .delete-btn {
   cursor: pointer;
 }
+.error-message {
+  display: none;
+  border: 1px solid;
+  text-align: center;
+  padding: 20px;
+  width: fit-content;
+  background: #e55656;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  border-radius: 5px;
+}
+.show {
+    display: block;
+}

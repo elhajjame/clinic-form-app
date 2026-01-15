@@ -11,37 +11,55 @@
     />
   </head>
   <body>
+    <div class="error-message">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    </div>
     <div class="all">
       <div class="container">
         <div class="title">Take Appointment</div>
-        <form action="#">
+        <form class="form-contianer" action="#">
           <div class="user-details">
             <div class="input-box">
               <span class="details">FullName</span>
-              <input type="text" placeholder="Enter Your Fullname" required />
+              <input
+                class="fullName"
+                type="text"
+                placeholder="Enter Your Fullname"
+                
+              />
             </div>
             <div class="input-box">
               <span class="details">Phone Number</span>
               <input
+                class="phone-number"
                 type="text"
                 placeholder="Enter Your Phone Number"
-                required
+              
               />
             </div>
             <div class="input-box">
               <span class="details">E-mail</span>
-              <input type="text" placeholder="Enter Your E-mail" required />
+              <input
+                class="email"
+                type="text"
+                placeholder="Enter Your E-mail"
+                
+              />
             </div>
             <div class="input-box">
               <span class="details">Motif</span>
-              <input type="text" placeholder="Motif" required />
+              <input class="motif" type="text" placeholder="Motif"  />
             </div>
             <div class="input-box">
               <span class="details">Date</span>
-              <input type="date" required />
+              <input class="date" type="date"  />
             </div>
             <div class="button">
-              <input type="submit" value="Take appointment" />
+              <input
+                class="submit-btn"
+                type="submit"
+                value="Take appointment"
+              />
             </div>
           </div>
         </form>
@@ -58,14 +76,18 @@
               <th>action</th>
             </tr>
           </thead>
-          <tbody id="tbody-history">
+          <tbody class="tbody-con">
             <tr>
               <td>mehdi el-hajjame</td>
               <td>06xxxxxxxx</td>
               <td>el-hajjame@outlook.com</td>
               <td>sick</td>
               <td>01/01/2001</td>
-              <th><span  class="material-symbols-outlined delete-btn"> delete </span></th>
+              <th>
+                <span class="material-symbols-outlined delete-btn">
+                  delete
+                </span>
+              </th>
             </tr>
           </tbody>
         </table>
