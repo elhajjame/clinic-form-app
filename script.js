@@ -17,12 +17,12 @@ formCon.addEventListener('submit', (e) => {
     const motif = motifEL.value.trim();
     const visitDate = visitDateEL.value.trim();
 
- 
+
 
     let saveData = JSON.parse(localStorage.getItem('saveData')) || [];
 
-// ------------- here checking the inputs before pushing to localStorage----------------
-    if(fullName && phoneNumber && email && motif && visitDate ){
+    // ------------- here checking the inputs before pushing to localStorage----------------
+    if (fullName && phoneNumber && email && motif && visitDate) {
         saveData.push({
             name: fullName,
             phone: phoneNumber,
@@ -35,11 +35,11 @@ formCon.addEventListener('submit', (e) => {
     localStorage.setItem('saveData', JSON.stringify(saveData));
 
     //====================== checking the input =================
-      if (!fullName) return errorMessage('you should add the full name');
-      if (!phoneNumber) return errorMessage('you should add the phone number');
-      if (!email) return errorMessage('you should add the email');
-      if (!motif) return errorMessage('you should add the motif');
-      if (!visitDate) return errorMessage('you should add visit date');
+    if (!fullName) return errorMessage('you should add the full name');
+    if (!phoneNumber) return errorMessage('you should add the phone number');
+    if (!email) return errorMessage('you should add the email');
+    if (!motif) return errorMessage('you should add the motif');
+    if (!visitDate) return errorMessage('you should add visit date');
     renderAppointment();
 
     formCon.reset();
@@ -59,7 +59,7 @@ function renderAppointment() {
         </tr>
         `
     } else {
-        saveData.forEach(element => {
+        saveData.forEach((element,index) => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <tr>
@@ -70,18 +70,24 @@ function renderAppointment() {
               <td>${element.visitDate}</td>
         
               <th>
-                <span class="material-symbols-outlined delete-btn">
-                  delete
-                </span>
+                <span 
+                    class="material-symbols-outlined delete-btn"
+                    onClick="deleteItem(${index})"
+                    >
+                    delete
+                    </span>
               </th>
             `
             tbody.appendChild(tr);
         });
     }
-
-
 }
-
+function deleteItem(index){
+     let saveData = JSON.parse(localStorage.getItem('saveData')) || [];
+     saveData.splice(index,1);
+     localStorage.setItem('saveData', JSON.stringify(saveData));
+    renderAppointment()
+}
 renderAppointment();
 
 function errorMessage(message) {
@@ -89,6 +95,6 @@ function errorMessage(message) {
     errorMessageEL.innerHTML = '';
     errorMessageEL.textContent = message;
     errorMessageEL.classList.add('show');
-    setTimeout(()=>{errorMessageEL.classList.remove('show')},3000);
+    setTimeout(() => { errorMessageEL.classList.remove('show') }, 3000);
 }
 
