@@ -1,0 +1,121 @@
+* {
+  font-family: "sans-serif", "Gill Sans MT", "Calibri", "Trebuchet MS";
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  /* height: 100vh; */
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 25px;
+}
+
+.container {
+  background-color: #fff;
+  /* border: 2px solid; */
+  border-radius: 5px;
+  max-width: 700px;
+  padding: 20px 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+  /* position: relative; */
+}
+
+/* .container .title::before{
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 25px;
+} */
+
+.container form .user-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+form .user-details .input-box {
+  margin: 15px 0 10px 0;
+  width: calc(100% / 2 - 20px);
+}
+
+.user-details .input-box .details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.user-details .input-box input {
+  height: 35px;
+  width: 100%;
+  padding-left: 10px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+form .button input {
+  height: 35px;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #6750a4;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  border-radius: 5px;
+}
+.button {
+  padding: 8px 0px;
+  width: 46%;
+}
+.button :hover {
+  background-color: #5b21b6;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+  cursor: pointer;
+}
+
+.all {
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  width: 700px;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 5px;
+  margin-top: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+thead tr {
+  border-bottom: 2px solid #ccc;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ccc;
+}
+.delete-btn {
+  cursor: pointer;
+}

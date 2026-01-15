@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinic Form App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=delete"
+    />
+  </head>
+  <body>
+    <div class="all">
+      <div class="container">
+        <div class="title">Take Appointment</div>
+        <form action="#">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">FullName</span>
+              <input type="text" placeholder="Enter Your Fullname" required />
+            </div>
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input
+                type="text"
+                placeholder="Enter Your Phone Number"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">E-mail</span>
+              <input type="text" placeholder="Enter Your E-mail" required />
+            </div>
+            <div class="input-box">
+              <span class="details">Motif</span>
+              <input type="text" placeholder="Motif" required />
+            </div>
+            <div class="input-box">
+              <span class="details">Date</span>
+              <input type="date" required />
+            </div>
+            <div class="button">
+              <input type="submit" value="Take appointment" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <section class="tabel-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>Phone</th>
+              <th>E-mail</th>
+              <th>motif</th>
+              <th>Date</th>
+              <th>action</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-history">
+            <tr>
+              <td>mehdi el-hajjame</td>
+              <td>06xxxxxxxx</td>
+              <td>el-hajjame@outlook.com</td>
+              <td>sick</td>
+              <td>01/01/2001</td>
+              <th><span  class="material-symbols-outlined delete-btn"> delete </span></th>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
