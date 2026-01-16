@@ -55,7 +55,7 @@ function renderAppointment() {
     if (saveData.length === 0) {
         tbody.innerHTML = `
         <tr>
-            <td colspan="6" id="test">No appointment at the moment</td>
+            <td colspan="6"> No appointment at the moment</td>
         </tr>
         `
     } else {
@@ -92,9 +92,8 @@ renderAppointment();
 
 function errorMessage(message) {
     const errorMessageEL = document.querySelector('.error-message');
-    errorMessageEL.innerHTML = '';
+    // errorMessageEL.innerHTML = '';
     errorMessageEL.textContent = message;
     errorMessageEL.classList.add('show');
     setTimeout(() => { errorMessageEL.classList.remove('show') }, 3000);
-}
-
+};
