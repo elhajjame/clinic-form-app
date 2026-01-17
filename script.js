@@ -7,10 +7,8 @@ const visitDateEL = document.querySelector('.date');
 const submitBtn = document.querySelector('.submit-btn');
 
 const formCon = document.querySelector('.form-contianer');
-
-formCon.addEventListener('submit', (e) => {
+const checkInputs = function (e) {
     e.preventDefault();
-
     const fullName = fullNameEL.value.trim();
     const phoneNumber = phoneNumberEL.value.trim();
     const email = emailEL.value.trim();
@@ -19,6 +17,39 @@ formCon.addEventListener('submit', (e) => {
 
 
 
+
+
+    //====================== checking the input =================
+    let emptyField = false;
+    if (!fullName) {
+        fullNameEL.style.borderColor = 'red';
+        emptyField = true;
+    }
+
+    if (!phoneNumber) {
+        phoneNumberEL.style.borderColor = 'red';
+        emptyField = true;
+    }
+
+    if (!email) {
+        emailEL.style.borderColor = 'red';
+        emptyField = true;
+    }
+
+    if (!motif) {
+        motifEL.style.borderColor = 'red';
+        emptyField = true;
+    }
+
+    if (!visitDate) {
+        visitDateEL.style.borderColor = 'red';
+        emptyField = true;
+    }
+
+    if (emptyField) {
+        errorMessage('Please fill all the fields');
+        return;
+    }
     let saveData = JSON.parse(localStorage.getItem('saveData')) || [];
 
     // ------------- here checking the inputs before pushing to localStorage----------------
@@ -31,20 +62,14 @@ formCon.addEventListener('submit', (e) => {
             visitDate: visitDate
         });
     };
-
     localStorage.setItem('saveData', JSON.stringify(saveData));
 
-    //====================== checking the input =================
-    if (!fullName) return errorMessage('you should add the full name');
-    if (!phoneNumber) return errorMessage('you should add the phone number');
-    if (!email) return errorMessage('you should add the email');
-    if (!motif) return errorMessage('you should add the motif');
-    if (!visitDate) return errorMessage('you should add visit date');
     renderAppointment();
-
     formCon.reset();
+    window.location.reload()
+}
 
-});
+formCon.addEventListener('submit', checkInputs);
 
 function renderAppointment() {
     const tbody = document.querySelector('.tbody-con');
@@ -59,7 +84,7 @@ function renderAppointment() {
         </tr>
         `
     } else {
-        saveData.forEach((element,index) => {
+        saveData.forEach((element, index) => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <tr>
@@ -82,10 +107,10 @@ function renderAppointment() {
         });
     }
 }
-function deleteItem(index){
-     let saveData = JSON.parse(localStorage.getItem('saveData')) || [];
-     saveData.splice(index,1);
-     localStorage.setItem('saveData', JSON.stringify(saveData));
+function deleteItem(index) {
+    let saveData = JSON.parse(localStorage.getItem('saveData')) || [];
+    saveData.splice(index, 1);
+    localStorage.setItem('saveData', JSON.stringify(saveData));
     renderAppointment()
 }
 renderAppointment();
