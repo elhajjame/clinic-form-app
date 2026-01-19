@@ -7,6 +7,7 @@ const visitDateEL = document.querySelector('.date');
 const submitBtn = document.querySelector('.submit-btn');
 
 const formCon = document.querySelector('.form-contianer');
+
 const checkInputs = function (e) {
     e.preventDefault();
     const fullName = fullNameEL.value.trim();
@@ -15,11 +16,7 @@ const checkInputs = function (e) {
     const motif = motifEL.value.trim();
     const visitDate = visitDateEL.value.trim();
 
-
-
-
-
-    //====================== checking the input =================
+    //====================== checking the input and displaying error message ======================
     let emptyField = false;
     if (!fullName) {
         fullNameEL.style.borderColor = 'red';
@@ -50,23 +47,23 @@ const checkInputs = function (e) {
         errorMessage('Please fill all the fields');
         return;
     }
+
     let saveData = JSON.parse(localStorage.getItem('saveData')) || [];
 
-    // ------------- here checking the inputs before pushing to localStorage----------------
-    if (fullName && phoneNumber && email && motif && visitDate) {
-        saveData.push({
-            name: fullName,
-            phone: phoneNumber,
-            email: email,
-            motif: motif,
-            visitDate: visitDate
-        });
-    };
+    // ------------- pushing data into localStorage----------------
+    saveData.push({
+        name: fullName,
+        phone: phoneNumber,
+        email: email,
+        motif: motif,
+        visitDate: visitDate
+    });
+
     localStorage.setItem('saveData', JSON.stringify(saveData));
+    errorMessage('appointment has been registered');
 
     renderAppointment();
     formCon.reset();
-    window.location.reload()
 }
 
 formCon.addEventListener('submit', checkInputs);
@@ -117,8 +114,11 @@ renderAppointment();
 
 function errorMessage(message) {
     const errorMessageEL = document.querySelector('.error-message');
-    // errorMessageEL.innerHTML = '';
+    errorMessageEL.innerHTML = '';
     errorMessageEL.textContent = message;
     errorMessageEL.classList.add('show');
     setTimeout(() => { errorMessageEL.classList.remove('show') }, 3000);
 };
+submitBtn.addEventListener('click', function () {
+
+})
