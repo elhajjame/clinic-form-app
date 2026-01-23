@@ -119,6 +119,3 @@ function errorMessage(message) {
     errorMessageEL.classList.add('show');
     setTimeout(() => { errorMessageEL.classList.remove('show') }, 3000);
 };
-submitBtn.addEventListener('click', function () {
-
-})
